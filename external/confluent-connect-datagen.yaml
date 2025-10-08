@@ -1,0 +1,8 @@
+project: default
+source:
+  repoURL: https://github.com/craigedmunds/confluent-kubernetes-examples
+  path: quickstart-deploy/kraft-quickstart/connect-datagen
+  targetRevision: feature/restructure-kraft-quickstart
+destination:
+  server: https://kubernetes.default.svc
+  namespace: confluent
