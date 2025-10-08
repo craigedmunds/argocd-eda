@@ -15,7 +15,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: kafka-broker-config
-  namespace: knative-eventing
+  
   labels:
     app.kubernetes.io/version: "1.19.7"
 data:
@@ -41,7 +41,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: kafka-channel-config
-  namespace: knative-eventing
+  
   labels:
     app.kubernetes.io/version: "1.19.7"
 data:
@@ -683,7 +683,7 @@ spec:
       clientConfig:
         service:
           name: kafka-webhook-eventing
-          namespace: knative-eventing
+          
 ---
 
 
@@ -1009,7 +1009,7 @@ spec:
 #      clientConfig:
 #        service:
 #          name: eventing-kafka-webhook
-#          namespace: knative-eventing
+#          
 
 ---
 # Copyright 2019 The Knative Authors
@@ -1867,7 +1867,7 @@ spec:
       clientConfig:
         service:
           name: kafka-webhook-eventing
-          namespace: knative-eventing
+          
 
 ---
 # Copyright 2019 The Knative Authors
@@ -1921,7 +1921,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: config-kafka-source-defaults
-  namespace: knative-eventing
+  
   labels:
     app.kubernetes.io/version: "1.19.7"
   annotations:
@@ -1981,7 +1981,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: config-kafka-autoscaler
-  namespace: knative-eventing
+  
   labels:
     app.kubernetes.io/version: "1.19.7"
 data:
@@ -1997,7 +1997,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: config-kafka-features
-  namespace: knative-eventing
+  
   annotations:
     knative.dev/example-checksum: "cf3393de"
 data:
@@ -2051,7 +2051,7 @@ metadata:
   labels:
     app.kubernetes.io/version: "1.19.7"
   name: config-kafka-leader-election
-  namespace: knative-eventing
+  
   annotations:
     knative.dev/example-checksum: "96896b00"
 data:
@@ -2113,7 +2113,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: kafka-config-logging
-  namespace: knative-eventing
+  
   labels:
     app.kubernetes.io/version: "1.19.7"
 data:
@@ -2150,7 +2150,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: config-namespaced-broker-resources
-  namespace: knative-eventing
+  
 data:
   resources: |
     [
@@ -2544,7 +2544,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: kafka-controller
-  namespace: knative-eventing
+  
   labels:
     app.kubernetes.io/version: "1.19.7"
 
@@ -2571,7 +2571,7 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: kafka-controller
-    namespace: knative-eventing
+    
 roleRef:
   kind: ClusterRole
   name: kafka-controller
@@ -2586,7 +2586,7 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: kafka-controller
-    namespace: knative-eventing
+    
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -2610,7 +2610,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: kafka-controller
-  namespace: knative-eventing
+  
   labels:
     app: kafka-controller
     app.kubernetes.io/version: "1.19.7"
@@ -2904,7 +2904,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: kafka-webhook-eventing
-  namespace: knative-eventing
+  
   labels:
     app.kubernetes.io/version: "1.19.7"
 
@@ -2931,7 +2931,7 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: kafka-webhook-eventing
-    namespace: knative-eventing
+    
 roleRef:
   kind: ClusterRole
   name: kafka-webhook-eventing
@@ -2963,7 +2963,7 @@ webhooks:
     clientConfig:
       service:
         name: kafka-webhook-eventing
-        namespace: knative-eventing
+        
     sideEffects: None
     failurePolicy: Fail
     name: defaulting.webhook.kafka.eventing.knative.dev
@@ -2996,7 +2996,7 @@ webhooks:
     clientConfig:
       service:
         name: kafka-webhook-eventing
-        namespace: knative-eventing
+        
     sideEffects: None
     failurePolicy: Fail
     name: pods.defaulting.webhook.kafka.eventing.knative.dev
@@ -3029,7 +3029,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: kafka-webhook-eventing-certs
-  namespace: knative-eventing
+  
   labels:
     app.kubernetes.io/version: "1.19.7"
 # The data is populated at install time.
@@ -3060,7 +3060,7 @@ webhooks:
     clientConfig:
       service:
         name: kafka-webhook-eventing
-        namespace: knative-eventing
+        
     sideEffects: None
     failurePolicy: Fail
     name: validation.webhook.kafka.eventing.knative.dev
@@ -3085,7 +3085,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: kafka-webhook-eventing
-  namespace: knative-eventing
+  
   labels:
     app: kafka-webhook-eventing
     app.kubernetes.io/version: "1.19.7"
@@ -3186,7 +3186,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: kafka-webhook-eventing
-  namespace: knative-eventing
+  
   labels:
     app: kafka-webhook-eventing
     app.kubernetes.io/version: "1.19.7"
