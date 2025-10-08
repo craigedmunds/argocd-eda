@@ -2931,6 +2931,7 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: kafka-webhook-eventing
+    namespace: knative-eventing
     
 roleRef:
   kind: ClusterRole
