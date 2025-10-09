@@ -1867,6 +1867,9 @@
 #       clientConfig:
 #         service:
 #           name: kafka-webhook-eventing
+#     webhookClientConfig:
+#         service:
+#           name: kafka-webhook-eventing
           
 
 # ---
