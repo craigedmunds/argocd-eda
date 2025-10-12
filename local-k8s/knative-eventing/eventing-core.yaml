@@ -717,20 +717,33 @@
 # # See the License for the specific language governing permissions and
 # # limitations under the License.
 
-# apiVersion: v1
-# kind: ConfigMap
-# metadata:
-#   name: config-observability
-#   namespace: knative-eventing
-#   labels:
-#     knative.dev/config-propagation: original
-#     knative.dev/config-category: eventing
-#     app.kubernetes.io/version: "1.19.6"
-#     app.kubernetes.io/name: knative-eventing
-#   annotations:
-#     knative.dev/example-checksum: "0270bb17"
-# data:
-#   _example: |
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-observability
+  namespace: knative-eventing
+  labels:
+    knative.dev/config-propagation: original
+    knative.dev/config-category: eventing
+    app.kubernetes.io/version: "1.19.6"
+    app.kubernetes.io/name: knative-eventing
+  annotations:
+    knative.dev/example-checksum: "0270bb17"
+data:
+
+  # metrics-protocol field specifies the protocol used when exporting metrics
+  # It supports either 'none' (the default), 'prometheus', 'http/protobuf' (OTLP HTTP), 'grpc' (OTLP gRPC)
+  metrics-protocol: prometheus
+
+  # request-metrics-protocol
+  request-metrics-protocol: http/protobuf
+  request-metrics-endpoint: http://192.168.194.161:9090/api/v1/otlp/v1/metrics
+
+  # tracing-protocol:      http/protobuf
+  # tracing-endpoint:      http://jaeger-collector.observability.svc:4318/v1/traces
+  # tracing-sampling-rate: "1"
+
+# _example: |
 #     ################################
 #     #                              #
 #     #    EXAMPLE CONFIGURATION     #
